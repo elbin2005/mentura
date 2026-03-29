@@ -21,7 +21,7 @@ const ContactPage = () => {
         try {
             const response = await fetch("https://formsubmit.co/ajax/mentauraca@gmail.com", {
                 method: "POST",
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },

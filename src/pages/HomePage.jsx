@@ -143,9 +143,9 @@ const HomePage = () => {
                         </motion.p>
 
                         <motion.div variants={fadeUp} className="hero__actions">
-                            <Link to="/contact" className="btn-primary hero__btn-main">
+                            <a href="#contact" className="btn-primary hero__btn-main">
                                 Begin Your Journey <HiArrowRight />
-                            </Link>
+                            </a>
                             <a href="#about-section" className="btn-secondary">
                                 <HiPlay /> Watch Overview
                             </a>
@@ -414,12 +414,12 @@ const HomePage = () => {
                         Seats fill fast — secure yours today.
                     </motion.p>
                     <motion.div variants={fadeUp} className="cta-section__actions">
-                        <Link to="/contact" className="btn-primary cta-section__btn">
+                        <a href="#contact" className="btn-primary cta-section__btn">
                             Apply Now <HiArrowRight />
-                        </Link>
-                        <Link to="/campus-life" className="btn-secondary">
+                        </a>
+                        <a href="#campus-life" className="btn-secondary">
                             Explore Campus
-                        </Link>
+                        </a>
                     </motion.div>
                 </motion.div>
             </section>

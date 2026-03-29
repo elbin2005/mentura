@@ -92,9 +92,9 @@ const Navbar = () => {
                 </ul>
 
                 {/* CTA */}
-                <Link to="/contact" className="navbar__cta btn-primary">
+                <a href="#contact" className="navbar__cta btn-primary">
                     Enroll Now
-                </Link>
+                </a>
 
                 {/* Hamburger */}
                 <button
@@ -131,9 +131,9 @@ const Navbar = () => {
                                 </Link>
                             </motion.div>
                         ))}
-                        <Link to="/contact" className="btn-primary" style={{ marginTop: '1rem' }}>
+                        <a href="#contact" className="btn-primary" style={{ marginTop: '1rem' }}>
                             Enroll Now
-                        </Link>
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
