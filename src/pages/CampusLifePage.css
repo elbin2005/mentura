@@ -139,6 +139,57 @@
     opacity: 1;
 }
 
+.video-item {
+    cursor: pointer;
+    grid-row: span 2;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+.gallery-video:fullscreen,
+.gallery-video:-webkit-full-screen,
+.gallery-video:-ms-fullscreen {
+    object-fit: contain;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13, 56, 99, 0.6), rgba(255, 115, 0, 0.4));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.video-overlay:hover {
+    background: linear-gradient(135deg, rgba(13, 56, 99, 0.8), rgba(255, 115, 0, 0.6));
+}
+
+.play-icon {
+    font-size: 3.5rem;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover .play-icon {
+    transform: scale(1.1);
+}
+
 /* ── ACTIVITIES ── */
 .activities {
     padding: 8rem 0;

@@ -1,12 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiHome, HiAcademicCap, HiFire, HiHeart, HiCamera } from 'react-icons/hi';
+import { HiHome, HiAcademicCap, HiFire, HiHeart, HiCamera, HiPlay } from 'react-icons/hi';
 import campus1 from '../assets/campus1.jpg';
 import campus2 from '../assets/campus2.jpg';
 import campus3 from '../assets/campus3.jpg';
 import campus4 from '../assets/campus4.jpg';
 import campus5 from '../assets/campus5.jpg';
 import campus6 from '../assets/campus6.jpg';
+import video1 from '../assets/video1.mp4';
+import video2 from '../assets/video2.mp4';
+import video3 from '../assets/video3.mp4';
+import video4 from '../assets/video4.mp4';
 import './CampusLifePage.css';
 
 const fadeUp = {
@@ -17,6 +21,64 @@ const fadeUp = {
 const staggerContainer = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.12 } }
+};
+
+const VideoGalleryItem = ({ item, fadeUp }) => {
+    const videoRef = React.useRef(null);
+    const [isPlaying, setIsPlaying] = React.useState(false);
+
+    const handleTogglePlay = () => {
+        const video = videoRef.current;
+        if (video) {
+            if (video.paused) {
+                video.play();
+                setIsPlaying(true);
+            } else {
+                video.pause();
+                setIsPlaying(false);
+            }
+        }
+    };
+
+    React.useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const onPlay = () => setIsPlaying(true);
+        const onPause = () => setIsPlaying(false);
+
+        video.addEventListener('play', onPlay);
+        video.addEventListener('pause', onPause);
+
+        return () => {
+            video.removeEventListener('play', onPlay);
+            video.removeEventListener('pause', onPause);
+        };
+    }, []);
+
+    return (
+        <motion.div
+            className={`gallery-item item-${item.id} glass-card video-item`}
+            variants={fadeUp}
+            whileHover={{ scale: 1.02, y: -5 }}
+        >
+            <div className="video-wrapper">
+                <video 
+                    ref={videoRef}
+                    src={item.src} 
+                    className="gallery-video" 
+                    preload="metadata"
+                    onClick={handleTogglePlay}
+                />
+                {!isPlaying && (
+                    <div className="video-overlay" onClick={handleTogglePlay}>
+                        <HiPlay className="gallery-icon play-icon" />
+                        <span>{item.title}</span>
+                    </div>
+                )}
+            </div>
+        </motion.div>
+    );
 };
 
 const CampusLifePage = () => {
@@ -74,25 +136,33 @@ const CampusLifePage = () => {
                     </div>
                     <div className="gallery__grid">
                         {[
-                            { id: 1, src: campus1 },
-                            { id: 2, src: campus2 },
-                            { id: 3, src: campus3 },
-                            { id: 4, src: campus4 },
-                            { id: 5, src: campus5 },
-                            { id: 6, src: campus6 },
+                            { id: 1, src: campus1, type: 'image' },
+                            { id: 2, src: campus2, type: 'image' },
+                            { id: 3, src: campus3, type: 'image' },
+                            { id: 4, src: campus4, type: 'image' },
+                            { id: 5, src: campus5, type: 'image' },
+                            { id: 6, src: campus6, type: 'image' },
+                            { id: 7, src: video1, type: 'video', title: 'Campus Tour 1' },
+                            { id: 8, src: video2, type: 'video', title: 'Campus Tour 2' },
+                            { id: 9, src: video3, type: 'video', title: 'Campus Tour 3' },
+                            { id: 10, src: video4, type: 'video', title: 'Campus Tour 4' },
                         ].map((item) => (
-                            <motion.div
-                                key={item.id}
-                                className={`gallery-item item-${item.id} glass-card`}
-                                variants={fadeUp}
-                                whileHover={{ scale: 1.02, y: -5 }}
-                            >
-                                <img src={item.src} alt={`Campus View ${item.id}`} className="gallery-img" />
-                                <div className="gallery-item__overlay">
-                                    <HiCamera className="gallery-icon" />
-                                    <span></span>
-                                </div>
-                            </motion.div>
+                            item.type === 'video' ? (
+                                <VideoGalleryItem key={item.id} item={item} fadeUp={fadeUp} />
+                            ) : (
+                                <motion.div
+                                    key={item.id}
+                                    className={`gallery-item item-${item.id} glass-card`}
+                                    variants={fadeUp}
+                                    whileHover={{ scale: 1.02, y: -5 }}
+                                >
+                                    <img src={item.src} alt={`Campus View ${item.id}`} className="gallery-img" />
+                                    <div className="gallery-item__overlay">
+                                        <HiCamera className="gallery-icon" />
+                                        <span></span>
+                                    </div>
+                                </motion.div>
+                            )
                         ))}
                     </div>
                 </div>
