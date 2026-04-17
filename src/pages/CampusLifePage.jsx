@@ -53,7 +53,7 @@ const CampusLifePage = () => {
                             { title: 'Premium Hostels', icon: <HiHome />, desc: 'Rooms with attached bathrooms, housekeeping, and 24/7 security.' },
                             { title: 'Personal Cubicles', icon: <HiAcademicCap />, desc: 'Silent study zones, digital archives, and high-speed internet availablity.' },
                             { title: 'Nutritious Dining', icon: <HiFire />, desc: 'Hygienic meals prepared with care to keep your energy levels high.' },
-                            { title: 'Wellness Center', icon: <HiHeart />, desc: 'Regular discussion sessions, physical exercise zones, and psychological counselling.' },
+                            { title: 'Recline Space', icon: <HiHeart />, desc: 'Regular discussion sessions, physical exercise zones, and psychological counselling.' },
                         ].map((f, i) => (
                             <motion.div key={i} className="facility-card glass-card" variants={fadeUp}>
                                 <div className="facility-card__icon">{f.icon}</div>
