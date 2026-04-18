@@ -142,9 +142,9 @@ const CampusLifePage = () => {
                             { id: 4, src: campus4, type: 'image' },
                             { id: 5, src: campus5, type: 'image' },
                             { id: 6, src: campus6, type: 'image' },
-                            { id: 7, src: video1, type: 'video', title: 'Campus Tour 1' },
-                            { id: 8, src: video2, type: 'video', title: 'Campus Tour 2' },
-                            { id: 9, src: video3, type: 'video', title: 'Campus Tour 3' },
+                            { id: 7, src: video1, type: 'video', title: 'Campus Tour' },
+                            { id: 8, src: video2, type: 'video', title: 'Founder Vision' },
+                            { id: 9, src: video3, type: 'video', title: 'Mentor Vision' },
                             // { id: 10, src: video4, type: 'video', title: 'Campus Tour 4' },
                         ].map((item) => (
                             item.type === 'video' ? (
