@@ -10,7 +10,7 @@ import campus6 from '../assets/campus6.jpg';
 import video1 from '../assets/video1.mp4';
 import video2 from '../assets/video2.mp4';
 import video3 from '../assets/video3.mp4';
-import video4 from '../assets/video4.mp4';
+// import video4 from '../assets/video4.mp4';
 import './CampusLifePage.css';
 
 const fadeUp = {
@@ -145,7 +145,7 @@ const CampusLifePage = () => {
                             { id: 7, src: video1, type: 'video', title: 'Campus Tour 1' },
                             { id: 8, src: video2, type: 'video', title: 'Campus Tour 2' },
                             { id: 9, src: video3, type: 'video', title: 'Campus Tour 3' },
-                            { id: 10, src: video4, type: 'video', title: 'Campus Tour 4' },
+                            // { id: 10, src: video4, type: 'video', title: 'Campus Tour 4' },
                         ].map((item) => (
                             item.type === 'video' ? (
                                 <VideoGalleryItem key={item.id} item={item} fadeUp={fadeUp} />
