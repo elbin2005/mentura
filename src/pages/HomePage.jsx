@@ -282,7 +282,7 @@ const HomePage = () => {
                             {
                                 icon: <HiAcademicCap />,
                                 title: 'Expert-Led Academics',
-                                desc: 'Learn from distinguished faculty, many of whom are CA rank holders and practicing professionals.',
+                                desc: 'Learn from distinguished faculty, many of whom are CA holders and practicing professionals.',
                                 color: 'var(--orange)',
                             },
                             {
@@ -294,7 +294,7 @@ const HomePage = () => {
                             {
                                 icon: <HiLightBulb />,
                                 title: 'Smart Learning Tools',
-                                desc: 'Group discusssions areas, Wifi Facility, Distraction free environment, and regular mock test series.',
+                                desc: 'Group discussions areas, Wifi Facility, Distraction free environment, and regular mock test series.',
                                 color: 'var(--orange)',
                             },
                             {
