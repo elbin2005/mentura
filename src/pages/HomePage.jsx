@@ -246,9 +246,9 @@ const HomePage = () => {
                                 ))}
                             </motion.ul>
                             <motion.div variants={fadeUp}>
-                                <Link to="/about" className="btn-primary">
+                                <a href="#about" className="btn-primary">
                                     Learn More <HiArrowRight />
-                                </Link>
+                                </a>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -414,7 +414,7 @@ const HomePage = () => {
                         Seats fill fast — secure yours today.
                     </motion.p>
                     <motion.div variants={fadeUp} className="cta-section__actions">
-                        <a href="#contact" className="btn-primary cta-section__btn">
+                        <a href="https://forms.gle/nHpwThSPWojRK5Yx9" target="_blank" rel="noopener noreferrer" className="btn-primary cta-section__btn">
                             Apply Now <HiArrowRight />
                         </a>
                         <a href="#campus-life" className="btn-secondary">

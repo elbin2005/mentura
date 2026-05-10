@@ -92,7 +92,7 @@ const Navbar = () => {
                 </ul>
 
                 {/* CTA */}
-                <a href="#contact" className="navbar__cta btn-primary">
+                <a href="https://forms.gle/nHpwThSPWojRK5Yx9" target="_blank" rel="noopener noreferrer" className="navbar__cta btn-primary">
                     Enroll Now
                 </a>
 
@@ -131,7 +131,7 @@ const Navbar = () => {
                                 </Link>
                             </motion.div>
                         ))}
-                        <a href="#contact" className="btn-primary" style={{ marginTop: '1rem' }}>
+                        <a href="https://forms.gle/nHpwThSPWojRK5Yx9" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: '1rem' }}>
                             Enroll Now
                         </a>
                     </motion.div>
