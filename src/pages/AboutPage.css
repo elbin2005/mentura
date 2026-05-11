@@ -202,38 +202,104 @@
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .team-card {
-    padding: 3rem 2rem;
+    position: relative;
+    padding: 2.5rem 1.8rem 2rem;
     text-align: center;
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: visible;
 }
 
-.team-card__avatar {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+.team-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,
+            var(--glow-color, #000000) 0%,
+            transparent 50%,
+            var(--glow-color, #000000) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.team-card:hover::before {
+    opacity: 0.35;
+}
+
+.team-card:hover {
+    transform: translateY(-10px) rotateX(4deg) rotateY(-2deg);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px color-mix(in srgb, var(--glow-color, #ffffff) 30%, transparent);
+}
+
+/* ─ Photo wrapper — circular base, image pops out upward ─ */
+.team-card__photo-wrap {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2.8rem;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: var(--navy-light);
-    border: 2px solid var(--orange);
+    background: rgba(4, 17, 30, 0.85);
+    /* dark base shows as image rises */
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    z-index: 2;
+    /* NO overflow:hidden — image escapes upward freely */
+}
+
+.team-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    /* image is its own circle */
+    z-index: 3;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        filter 0.5s ease;
+    will-change: transform;
+}
+
+/* On hover: person pops upward — bottom stays inside the circle */
+.team-card:hover .team-card__photo {
+    transform: translateY(-42px) scale(1.08);
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.7));
 }
 
 .team-card h3 {
-    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem;
     margin-bottom: 0.4rem;
     color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .team-card p {
-    color: var(--orange);
+    position: relative;
+    z-index: 1;
+    color: var(--glow-color, var(--orange));
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 /* ── RESPONSIVE ── */

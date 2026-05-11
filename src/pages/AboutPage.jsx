@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiStar, HiLightBulb, HiCheckCircle, HiUsers } from 'react-icons/hi';
+import { HiStar, HiLightBulb, HiCheckCircle } from 'react-icons/hi';
+import jacobImg from '../assets/jacob.png';
+import johnImg from '../assets/john.png';
+import iwinImg from '../assets/iwin.png';
 import './AboutPage.css';
 
 const fadeUp = {
@@ -128,12 +131,18 @@ const AboutPage = () => {
                     </div>
                     <div className="team-grid">
                         {[
-                            { name: 'CA Jacobkutty Jaison', role: 'Co founder', icon: <HiUsers /> },
-                            { name: 'John Joseph ', role: 'Co founder', icon: <HiUsers /> },
-                            { name: 'Iwin Johny', role: 'Co founder', icon: <HiUsers /> },
+                            { name: 'CA Jacobkutty Jaison', role: 'Co Founder', img: jacobImg, color: '#f97316' },
+                            { name: 'John Joseph', role: 'Co Founder', img: johnImg, color: '#3b82f6' },
+                            { name: 'Iwin Johny', role: 'Co Founder', img: iwinImg, color: '#a855f7' },
                         ].map((member, i) => (
-                            <motion.div key={i} className="team-card glass-card" variants={fadeUp}>
-                                <div className="team-card__avatar">{member.icon}</div>
+                            <motion.div key={i} className="team-card" variants={fadeUp}>
+                                <div className="team-card__photo-wrap">
+                                    <img
+                                        src={member.img}
+                                        alt={member.name}
+                                        className="team-card__photo"
+                                    />
+                                </div>
                                 <h3>{member.name}</h3>
                                 <p>{member.role}</p>
                             </motion.div>
